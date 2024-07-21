@@ -1,0 +1,17 @@
+<app-header></app-header>
+<div class="container">
+  <div class="titulo">
+    <h2>Productos</h2>
+    <p>Selecciona tu producto y la cantidad que desees</p>
+  </div>
+
+  <section class="simulacion" *ngFor="let product of productos">
+    <h5>{{product.name}}<br></h5>
+    <p>{{product.price}}</p>
+    <div class="rating">
+      <img src="{{product.img}}">
+    </div>
+    <button>+</button>
+  </section>
+</div>
+<app-footer></app-footer>

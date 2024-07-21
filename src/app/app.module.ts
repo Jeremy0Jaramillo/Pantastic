@@ -10,13 +10,14 @@ import {LoginComponent} from "./components/login/login";
 import {HomeComponent} from "./components/home/home";
 import {HeaderComponent} from "./components/header/header";
 import {FooterComponent} from "./components/footer/footer";
+import {CartComponent} from "./components/cart/cart";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent, HomeComponent, HeaderComponent, FooterComponent
+    LoginComponent, HomeComponent, HeaderComponent, FooterComponent, CartComponent
   ],
   imports: [
     BrowserModule,
