@@ -9,15 +9,11 @@
   justify-content: space-around;
   background-color: rgba(245, 247, 250, 1);
   height: 416.95px;
-    background-image: url("/assets/img/pan.jpg");
-    background-size: cover; /* Esto hace que la imagen cubra toda la pantalla */
-    background-position: center; /* Esto centra la imagen en la pantalla */
-    background-repeat: no-repeat; /* Esto evita que la imagen se repita */
-}
+  background-image: url("/assets/img/pan.jpg");
+  background-size: cover; /* Esto hace que la imagen cubra toda la pantalla */
+  background-position: center; /* Esto centra la imagen en la pantalla */
+  background-repeat: no-repeat; /* Esto evita que la imagen se repita */
 
-
-
-.home img{
 
 }
 
@@ -49,132 +45,149 @@
 }
 
 .home .content h1{
-  /* font-size: 44.55px; */
-  font-size: 650%;
-  color: rgb(255, 255, 255);
-  text-shadow: 2px 2px 0 #000;
+  font-size: 600%;
+  color: rgb(247, 166, 4);
+  font-family: OoohBaby;
 }
 
+.content{
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 550px;
+
+  text-align: center;
+}
 
 
 /* Seccion 2, Info */
-
 .info {
+  text-align: center;
+  padding: 20px;
+}
+
+.titulo h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 9%;
-  margin-top: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.info .titulo {
-  width: 100%;
+.card {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 250px;
+  padding: 10px;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
-.info .titulo h2{
-  font-size: 25px;
+.card img {
+  max-width: 100%;
+  border-radius: 10px 10px 0 0;
 }
 
-.info .contenido {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 15%;
-  margin-bottom: 15px;
+.details {
+  padding: 10px;
 }
 
-
-.info .contenido div {
-  flex: 1;
-  text-align: center;
-  padding: 22.27px;
-  /* padding: 16.71px, 22.27px, 16.71px, 22.27px; */
+.details h3 {
+  font-size: 18px;
+  margin: 10px 0;
 }
 
-.info .contenido h3{
-  font-size: 20px;
-
+.details p {
+  font-size: 16px;
+  color: #555;
 }
 
-.info p{
-  font-size: 11px;
-  font-weight: 400;
-  line-height: 13.92px;
-  text-align: center;
-
-}
-.proyecto img {
-  padding-bottom: 15px;
-  width: 60px;
+.old-price {
+  text-decoration: line-through;
+  color: #888;
 }
 
-.proyecto h3 {
-  padding-bottom: 15px;
+.new-price {
+  color: #e74c3c;
 }
 
-.proyecto p {
-  padding-bottom: 15px;
+button {
+  background: #d2691e;
+  border: none;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #c15412;
 }
 
 /* Seccion 3, Estadistica */
 
-.estadistica{
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(245, 247, 250, 1);
+.clubes {
+  text-align: center;
+  padding: 20px;
+  background-color: rgb(250, 244, 244);
 }
 
-.abc{
-  display: flex;
-  flex-direction: column;
-  width: 475px;
-  gap: 28px;
-  margin-top: 10px;
-
+.subtitulo h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.abc h3{
-  font-size: 19px;
-}
-
-.abc p{
-  font-size: 11px;
-}
-.abc img{
-  width: 60px;
-}
-.numeros{
+.club-item {
   display: flex;
   justify-content: space-around;
-
+  flex-wrap: wrap;
 }
 
-.iconos{
-  display: flex;
+.card-club{
+  max-width: 300px;
+  text-align: center;
+  margin: 20px;
 }
 
-.cursos{
+.icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid black; /* Color marrón */
   display: flex;
+  align-items: center;
   justify-content: center;
+  margin: 0 auto 10px;
 }
 
-.etiquetas{
-  display: flex;
-  flex-direction: column;
+.icon img {
+  max-width: 60px;
+
 }
 
-.subtitulo{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 15px;
-  max-width: 284px;
+.card-club h3 {
+  font-size: 20px;
+  color: rgb(247, 170, 15); /* Color marrón */
+  margin: 10px 0;
 }
-.subtitulo h2{
-  font-size: 25px;
 
+.linea {
+  border: none;
+  border-top: 2px solid #FFA500; /* Color naranja */
+  width: 50px;
+  margin: 10px auto;
+}
+
+.descripcion{
+  font-size: 16px;
+  color: #555;
 }
 
 /* Seccion 3 tambien llamada Seccion 3 */
