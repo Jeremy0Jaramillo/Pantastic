@@ -4,13 +4,20 @@
 
 .home{
   display: flex;
+  flex-direction: column;
   align-items: center;
-  /* min-height: 100vh; */
   justify-content: space-around;
   background-color: rgba(245, 247, 250, 1);
   height: 416.95px;
-  /* height: 416.95px); */
+    background-image: url("/assets/img/pan.jpg");
+    background-size: cover; /* Esto hace que la imagen cubra toda la pantalla */
+    background-position: center; /* Esto centra la imagen en la pantalla */
+    background-repeat: no-repeat; /* Esto evita que la imagen se repita */
+}
 
+
+
+.home img{
 
 }
 
@@ -43,16 +50,12 @@
 
 .home .content h1{
   /* font-size: 44.55px; */
-  font-size: 500%;
-  color: rgba(77, 77, 77, 1);
+  font-size: 650%;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 0 #000;
 }
 
-.home .content span{
-  font-size: 30px;
-  color: rgba(4, 65, 112, 1);
-  padding: 1rem 0;
-  line-height: 1.5;
-}
+
 
 /* Seccion 2, Info */
 

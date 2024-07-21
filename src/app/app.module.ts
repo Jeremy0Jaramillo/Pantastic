@@ -11,6 +11,8 @@ import {HomeComponent} from "./components/home/home";
 import {HeaderComponent} from "./components/header/header";
 import {FooterComponent} from "./components/footer/footer";
 
+
+
 @NgModule({
   declarations: [
     AppComponent,

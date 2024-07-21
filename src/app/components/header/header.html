@@ -8,7 +8,7 @@
 </head>
 <header>
   <div class="logo">
-    <img [routerLink]="['/home']" src="./assets/img/Logo-N.svg" alt="Logo">
+    <img [routerLink]="['/home']" src="./assets/img/logo.png" alt="Logo">
   </div>
 
   <nav class="navbar">
@@ -20,7 +20,7 @@
 
   <div class="auth-buttons" >
     <div *ngIf="loggedIn">
-      <img src="./assets/img/user.svg" alt="logo-usuario">
+      <img src="./assets/img/Cart.svg" alt="carrito-de-compras">
     </div>
     <span>{{emailFirstPart}}</span>
     <a class="boton"><button *ngIf="!loggedIn" [routerLink]="['/login']"><span>Iniciar Sesión</span></button></a>
