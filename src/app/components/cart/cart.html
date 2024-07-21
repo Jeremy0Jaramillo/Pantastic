@@ -5,13 +5,20 @@
     <p>Selecciona tu producto y la cantidad que desees</p>
   </div>
 
-  <section class="simulacion" *ngFor="let product of productos">
-    <h5>{{product.name}}<br></h5>
-    <p>{{product.price}}</p>
-    <div class="rating">
-      <img src="{{product.img}}">
+  <section class="productos">
+    <div class="producto-card" *ngFor="let product of productos">
+      <div class="producto-imagen">
+        <img src="{{product.img}}" alt="{{product.name}}">
+      </div>
+      <div class="producto-info">
+        <h5>{{product.name}}<br></h5>
+        <p>{{product.description}}</p>
+        <div class="precio-boton">
+          <p class="precio">${{product.price}}</p>
+          <button>+</button>
+        </div>
+      </div>
     </div>
-    <button>+</button>
   </section>
 </div>
 <app-footer></app-footer>

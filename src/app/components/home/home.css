@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: rgba(245, 247, 250, 1);
   height: 416.95px;
   background-image: url("/assets/img/pan.jpg");
   background-size: cover; /* Esto hace que la imagen cubra toda la pantalla */
@@ -118,7 +117,7 @@
 }
 
 button {
-  background: #d2691e;
+  background: rgb(247, 166, 4);
   border: none;
   color: #fff;
   padding: 10px;
@@ -139,9 +138,23 @@ button:hover {
   background-color: rgb(250, 244, 244);
 }
 
+.subtitulo{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+}
+
+.afiliate{
+  display: flex;
+  align-items: center;
+  margin-left: 33%;
+  margin-right: 20px;
+}
+
 .subtitulo h2 {
   font-size: 24px;
-  margin-bottom: 20px;
+
 }
 
 .club-item {
@@ -174,13 +187,13 @@ button:hover {
 
 .card-club h3 {
   font-size: 20px;
-  color: rgb(247, 170, 15); /* Color marrón */
+  color: rgb(247, 170, 15);
   margin: 10px 0;
 }
 
 .linea {
   border: none;
-  border-top: 2px solid #FFA500; /* Color naranja */
+  border-top: 2px solid rgb(247, 170, 15); /* Color naranja */
   width: 50px;
   margin: 10px auto;
 }
