@@ -1,12 +1,12 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyACch2yQf-MOASuEor8QRK7KGFv_dXYMGM",
-    authDomain: "sistema-sentencias-judiciales.firebaseapp.com",
-    databaseURL: "https://sistema-sentencias-judiciales-default-rtdb.firebaseio.com",
-    projectId: "sistema-sentencias-judiciales",
-    storageBucket: "sistema-sentencias-judiciales.appspot.com",
-    messagingSenderId: "461805623624",
-    appId: "1:461805623624:web:98f0bc2ab145beb9877b7d",
+    apiKey: "AIzaSyDz5TIXMvVfKQWWM11VR3L57j-InlXJGz4",
+    authDomain: "pantastikloja.firebaseapp.com",
+    databaseURL: "https://pantastikloja-default-rtdb.firebaseio.com",
+    projectId: "pantastikloja",
+    storageBucket: "pantastikloja.appspot.com",
+    messagingSenderId: "189597814690",
+    appId: "1:189597814690:web:a964a8e700960a2122acfb"
   }
 };
