@@ -3,10 +3,9 @@ import { AngularFirestore, DocumentReference } from '@angular/fire/compat/firest
 import {forkJoin, Observable, switchMap} from 'rxjs';
 import { map } from 'rxjs/operators';
 import Product from '../interfaces/product.interface';
+import Clubs from '../interfaces/clubs.interface';
 import firebase from 'firebase/compat/app';
 import QuerySnapshot = firebase.firestore.QuerySnapshot;
-
-import User from "../interfaces/user.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -23,13 +22,15 @@ export class ConsultasService {
     );
   }
 
-
-  obtenerProductoPorId(id: string): Observable<Product | undefined> {
-    const docRef = this.firestore.collection<Product>('product').doc(id);
-    return docRef.get().pipe(
-      map(doc => doc.exists ? doc.data() as Product : undefined)
+  obtenerClubs(): Observable<Clubs[]> {
+    const clubsRef = this.firestore.collection<Clubs>('clubs');
+    return clubsRef.get().pipe(
+      map((querySnapshot: QuerySnapshot<Clubs>) => {
+        return querySnapshot.docs.map(doc => doc.data());
+      })
     );
   }
+
 
 
 }

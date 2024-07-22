@@ -13,13 +13,13 @@
 
   <nav class="navbar">
     <a [routerLink]="['/home']">Principal</a>
-    <a [routerLink]="['/cart']" *ngIf="loggedIn">Comprar</a>
-    <a href="https://www.utpl.edu.ec/" target="_blank">Noticias</a>
-    <a href="https://www.utpl.edu.ec/carreras/psicologia" target="_blank">Clubes</a>
+    <a [routerLink]="['/cart']">Comprar</a>
+    <a [routerLink]="['/noticias']">Noticias</a>
+    <a [routerLink]="['/clubs']">Clubs</a>
   </nav>
 
   <div class="auth-buttons" >
-    <div *ngIf="loggedIn">
+    <div [routerLink]="['/cart']" class="cart">
       <img src="./assets/img/Cart.svg" alt="carrito-de-compras">
     </div>
     <span>{{emailFirstPart}}</span>

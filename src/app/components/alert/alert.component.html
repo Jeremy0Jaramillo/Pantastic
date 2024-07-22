@@ -1,0 +1,9 @@
+<div class="overlay" *ngIf="message"></div>
+<div class="alert" *ngIf="message">
+  <div class="alert-content">
+    <h2>{{ message }}</h2>
+    <span>Este es tu cupón del 20% de descuento en tu primera compra</span>
+    <h3>Pant3xgy</h3>
+    <button (click)="confirm()">Ok</button>
+  </div>
+</div>

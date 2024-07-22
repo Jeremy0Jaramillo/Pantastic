@@ -11,13 +11,18 @@ import {HomeComponent} from "./components/home/home";
 import {HeaderComponent} from "./components/header/header";
 import {FooterComponent} from "./components/footer/footer";
 import {CartComponent} from "./components/cart/cart";
+import {CarritoComponent} from "./components/carrito/carrito";
+import {ClubsComponent} from "./components/clubs/clubs";
+import { AlertComponent } from './components/alert/alert.component';
+import {NoticiasComponent} from "./components/noticias/noticias";
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent, HomeComponent, HeaderComponent, FooterComponent, CartComponent
+    LoginComponent, HomeComponent, HeaderComponent, FooterComponent, CartComponent, CarritoComponent,
+    ClubsComponent, AlertComponent, NoticiasComponent
   ],
   imports: [
     BrowserModule,

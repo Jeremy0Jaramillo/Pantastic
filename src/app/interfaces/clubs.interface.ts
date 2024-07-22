@@ -1,7 +1,6 @@
-export default interface Product {
+export default interface Clubs {
   id: string,
   name: string,
   description: string,
-  price: number,
   img: string
 }

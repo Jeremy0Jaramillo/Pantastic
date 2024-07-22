@@ -6,14 +6,19 @@ header{
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  box-shadow: 0.5rem 1rem rgba(0, 0, 0, .1);
   height: 58.76px;
+  border-bottom: solid rgb(247, 170, 15) 2px;
+
 }
 
 header .logo{
   display: flex;
   align-items: center;
 
+}
+
+.cart{
+  cursor: pointer;
 }
 
 header .logo span{

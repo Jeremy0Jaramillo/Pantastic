@@ -1,0 +1,33 @@
+<div class="page-container">
+  <div>
+    <app-header></app-header>
+    <div class="container">
+      <div class="titulo">
+        <h2>Carrito de Compras</h2>
+        <p>Estos son los productos de tu pedido  y el total a cancelar</p>
+      </div>
+      <div class="a">
+        <div class="carrito-productos" *ngFor="let item of productosSeleccionados">
+          <div class="producto-carrito">
+            <div class="producto-imagen">
+              <img [src]="item.product.img" [alt]="item.product.name">
+            </div>
+            <div class="producto-info">
+              <h5>{{item.product.name}}</h5>
+              <p>Cantidad: {{item.cantidad}}</p>
+              <p>Precio Total: ${{item.product.price * item.cantidad}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="total">
+        <h3>Total a cancelar: ${{total}}</h3>
+      </div>
+      <button (click)="escogerFormaRetiro()">Escoger Forma de Retiro</button>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+

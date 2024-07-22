@@ -9,8 +9,10 @@ import { LoginService } from "../../services/login.service";
   templateUrl: './cart.html',
   styleUrls: ['./cart.css']
 })
+
 export class CartComponent implements OnInit {
   productos: Product[] = [];
+  cantidades: { [id: string]: number } = {};
 
   constructor(
     private consultasService: ConsultasService,
@@ -24,9 +26,11 @@ export class CartComponent implements OnInit {
 
   obtenerProductos(): void {
     this.consultasService.obtenerProductos().subscribe(
-      product => {
-        this.productos = product;
-        console.log(this.productos);
+      products => {
+        this.productos = products;
+        products.forEach(product => {
+          this.cantidades[product.id] = 0; // Inicializa la cantidad de cada producto en 0
+        });
       },
       error => {
         console.error('Error al obtener los productos: ', error);
@@ -34,4 +38,17 @@ export class CartComponent implements OnInit {
     );
   }
 
+  incrementarCantidad(productId: string): void {
+    this.cantidades[productId]++;
+  }
+
+  decrementarCantidad(productId: string): void {
+    if (this.cantidades[productId] > 0) {
+      this.cantidades[productId]--;
+    }
+  }
+
+  irAlCarrito(): void {
+    this.router.navigate(['/carrito'], { state: { productos: this.productos, cantidades: this.cantidades } });
+  }
 }

@@ -1,0 +1,28 @@
+<div class="page-container">
+  <div>
+    <app-header></app-header>
+    <div class="container">
+      <div class="titulo">
+        <h2>Clubs</h2>
+        <p>Selecciona el club del que desees ser parte</p>
+      </div>
+
+      <app-alert *ngIf="alertMessage" [message]="alertMessage" (close)="alertMessage = undefined" (confirmed)="irANoticias()"></app-alert>
+
+      <section class="productos">
+        <div class="producto-card" *ngFor="let club of clubs">
+          <div class="producto-imagen">
+            <img [src]="club.img" [alt]="club.name">
+          </div>
+          <div class="producto-info">
+            <h5>{{club.name}}<br></h5>
+            <p>{{club.description}}</p>
+            <button (click)="afiliarse(club.id)">Afíliate</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
