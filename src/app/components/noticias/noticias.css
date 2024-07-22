@@ -19,14 +19,29 @@
   justify-content: space-between;
 }
 
+.not{
+  display: flex;
+}
+
+.infnot{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.not img{
+  margin-right: 100px;
+}
+
 .content-wrap{
   margin-top: 15px;
 }
 
 .noticia-card img {
-  width: 100%;
+  width: 200px;
   border-radius: 8px;
-  height: 180px;
+  height: auto;
 }
 
 .noticia-card h3 {

@@ -5,17 +5,29 @@
       <div class="noticias-container">
         <h2>Noticias Generales</h2>
         <div *ngFor="let noticia of noticiasGenerales" class="noticia-card">
-          <img *ngIf="noticia.img" [src]="noticia.img" alt="{{noticia.title}}">
-          <h3>{{noticia.title}}</h3>
-          <p>{{noticia.content}}</p>
+          <div class="not">
+            <img *ngIf="noticia.img" [src]="noticia.img" alt="{{noticia.title}}">
+            <div class="infnot">
+              <h3>{{noticia.title}}</h3>
+              <p>{{noticia.content}}</p>
+            </div>
+
+          </div>
+
         </div>
 
         <div *ngIf="noticiasClub.length > 0">
           <h2>Noticias de tus Clubs</h2>
           <div *ngFor="let noticia of noticiasClub" class="noticia-card">
-            <img *ngIf="noticia.img" [src]="noticia.img" alt="{{noticia.title}}">
-            <h3>{{noticia.title}}</h3>
-            <p>{{noticia.content}}</p>
+            <div class="not">
+              <img *ngIf="noticia.img" [src]="noticia.img" alt="{{noticia.title}}">
+              <div class="infnot">
+                <h3>{{noticia.title}}</h3>
+                <p>{{noticia.content}}</p>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </div>
