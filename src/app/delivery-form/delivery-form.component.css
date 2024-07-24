@@ -28,6 +28,14 @@ label {
   margin-bottom: 0.5rem;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  justify-content: space-between;
+
+}
+
 input, select, textarea {
   padding: 0.5rem;
   font-size: 1rem;
