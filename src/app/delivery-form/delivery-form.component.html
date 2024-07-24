@@ -1,0 +1,38 @@
+<div class="page-container">
+  <div>
+    <app-header></app-header>
+    <div class="container">
+      <div>
+        <h2>Formulario de Delivery</h2>
+        <form (ngSubmit)="submitForm()">
+          <div>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" [(ngModel)]="name" name="name" required>
+          </div>
+          <div>
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" [(ngModel)]="email" name="email" required>
+          </div>
+          <div>
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" [(ngModel)]="address" name="address" required>
+          </div>
+          <div>
+            <label for="reference">Referencia (opcional):</label>
+            <input type="text" id="reference" [(ngModel)]="reference" name="reference">
+          </div>
+          <div>
+            <label for="observations">Observaciones (opcional):</label>
+            <textarea id="observations" [(ngModel)]="observations" name="observations"></textarea>
+          </div>
+          <div class="tot">
+            <p>Total a pagar: ${{total}}</p>
+          </div>
+          <button (click)="submitForm()">Ir a pagar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+

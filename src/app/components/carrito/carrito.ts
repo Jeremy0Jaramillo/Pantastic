@@ -10,6 +10,7 @@ import Product from "../../interfaces/product.interface";
 export class CarritoComponent implements OnInit {
   productosSeleccionados: { product: Product, cantidad: number }[] = [];
   total: number = 0;
+  mostrarDialogo: boolean = false;
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
@@ -37,6 +38,19 @@ export class CarritoComponent implements OnInit {
   }
 
   escogerFormaRetiro(): void {
-    // Implementa la lógica para escoger forma de retiro
+    this.mostrarDialogo = true;
+  }
+
+  seleccionarOpcion(opcion: string): void {
+    this.mostrarDialogo = false;
+    if (opcion === 'pickup') {
+      this.router.navigate(['/pickup'], { state: { total: this.total } });
+    } else if (opcion === 'delivery') {
+      this.router.navigate(['/delivery'], { state: { total: this.total } });
+    }
+  }
+
+  cerrarDialogo(): void {
+    this.mostrarDialogo = false;
   }
 }

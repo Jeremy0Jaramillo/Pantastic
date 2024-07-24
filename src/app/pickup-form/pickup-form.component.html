@@ -1,0 +1,34 @@
+<div class="page-container">
+  <div>
+    <app-header></app-header>
+      <div class="container">
+        <div>
+          <h2>Formulario de Pick-up</h2>
+          <form (ngSubmit)="submitForm()">
+            <div>
+              <label for="name">Nombre:</label>
+              <input type="text" id="name" [(ngModel)]="name" name="name" required>
+            </div>
+            <div>
+              <label for="pickupTime">Hora aproximada de retiro:</label>
+              <input type="time" id="pickupTime" [(ngModel)]="pickupTime" name="pickupTime" required>
+            </div>
+            <div>
+              <label for="location">Local de retiro:</label>
+              <select id="location" [(ngModel)]="selectedLocation" name="location" required>
+                <option *ngFor="let location of locations" [value]="location">{{location}}</option>
+              </select>
+            </div>
+            <div class="tot">
+              <p>Total a pagar: ${{total}}</p>
+            </div>
+            <button (click)="submitForm()">Ir a pagar</button>
+          </form>
+        </div>
+
+      </div>
+
+  </div>
+  <app-footer></app-footer>
+</div>
+

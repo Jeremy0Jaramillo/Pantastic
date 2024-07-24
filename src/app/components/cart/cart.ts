@@ -12,6 +12,7 @@ import { LoginService } from "../../services/login.service";
 
 export class CartComponent implements OnInit {
   productos: Product[] = [];
+  productosFiltrados: Product[] = [];
   cantidades: { [id: string]: number } = {};
 
   constructor(
@@ -28,6 +29,7 @@ export class CartComponent implements OnInit {
     this.consultasService.obtenerProductos().subscribe(
       products => {
         this.productos = products;
+        this.productosFiltrados = products;
         products.forEach(product => {
           this.cantidades[product.id] = 0; // Inicializa la cantidad de cada producto en 0
         });
@@ -51,4 +53,11 @@ export class CartComponent implements OnInit {
   irAlCarrito(): void {
     this.router.navigate(['/carrito'], { state: { productos: this.productos, cantidades: this.cantidades } });
   }
+
+  buscarProductos(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const query = inputElement.value;
+    this.productosFiltrados = this.productos.filter(product => product.name.toLowerCase().includes(query.toLowerCase()));
+  }
+
 }

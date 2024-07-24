@@ -15,6 +15,9 @@ import {CarritoComponent} from "./components/carrito/carrito";
 import {ClubsComponent} from "./components/clubs/clubs";
 import { AlertComponent } from './components/alert/alert.component';
 import {NoticiasComponent} from "./components/noticias/noticias";
+import { PickupFormComponent } from './pickup-form/pickup-form.component';
+import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 
@@ -22,7 +25,7 @@ import {NoticiasComponent} from "./components/noticias/noticias";
   declarations: [
     AppComponent,
     LoginComponent, HomeComponent, HeaderComponent, FooterComponent, CartComponent, CarritoComponent,
-    ClubsComponent, AlertComponent, NoticiasComponent
+    ClubsComponent, AlertComponent, NoticiasComponent, PickupFormComponent, DeliveryFormComponent, PaymentComponent
   ],
   imports: [
     BrowserModule,

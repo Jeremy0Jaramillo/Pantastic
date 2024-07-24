@@ -1,31 +1,43 @@
-<app-header></app-header>
-<div class="container">
-  <div class="titulo">
-    <h2>Productos</h2>
-    <p>Selecciona tu producto y la cantidad que desees</p>
-  </div>
+<div class="page-container">
+  <div>
+    <app-header></app-header>
+    <div class="container">
+      <div class="titulo">
+        <div class="cont">
+          <h2>Productos</h2>
+          <p>Selecciona tu producto y la cantidad que desees</p>
+        </div>
+        <div class="cont1">
+          <input class="buscador" type="text" placeholder="Buscar productos" (input)="buscarProductos($event)">
+        </div>
 
-  <section class="productos">
-    <div class="producto-card" *ngFor="let product of productos">
-      <div class="producto-imagen">
-        <img [src]="product.img" [alt]="product.name">
       </div>
-      <div class="producto-info">
-        <h5>{{product.name}}<br></h5>
-        <p>{{product.description}}</p>
-        <div class="precio-boton">
-          <p class="precio">${{product.price}}</p>
-          <div class="cantidad">
-            <button (click)="decrementarCantidad(product.id)" [disabled]="cantidades[product.id] === 0">-</button>
-            <span>{{cantidades[product.id]}}</span>
-            <button (click)="incrementarCantidad(product.id)">+</button>
+
+      <section class="productos">
+        <div class="producto-card" *ngFor="let product of productosFiltrados">
+          <div class="producto-imagen">
+            <img [src]="product.img" [alt]="product.name">
+          </div>
+          <div class="producto-info">
+            <h5>{{product.name}}<br></h5>
+            <p>{{product.description}}</p>
+            <div class="precio-boton">
+              <p class="precio">${{product.price}}</p>
+              <div class="cantidad">
+                <button (click)="decrementarCantidad(product.id)" [disabled]="cantidades[product.id] === 0">-</button>
+                <span>{{cantidades[product.id]}}</span>
+                <button (click)="incrementarCantidad(product.id)">+</button>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
+      <div class="carritoC">
+        <button (click)="irAlCarrito()">Ir al Carrito de compras</button>
       </div>
     </div>
-  </section>
-  <div class="carritoC">
-    <button (click)="irAlCarrito()">Ir al Carrito de compras</button>
   </div>
+
+  <app-footer></app-footer>
+
 </div>
-<app-footer></app-footer>

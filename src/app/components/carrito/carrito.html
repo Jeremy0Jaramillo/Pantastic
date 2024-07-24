@@ -30,4 +30,13 @@
   <app-footer></app-footer>
 </div>
 
+<div *ngIf="mostrarDialogo" class="modal-backdrop">
+  <div class="modal">
+    <span class="close" (click)="cerrarDialogo()">&times;</span>
+    <h2>Escoger forma de retiro</h2>
+    <button (click)="seleccionarOpcion('pickup')">Pick-up</button>
+    <button (click)="seleccionarOpcion('delivery')">Delivery</button>
+  </div>
+</div>
+
 

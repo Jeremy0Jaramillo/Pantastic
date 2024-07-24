@@ -1,0 +1,64 @@
+.container {
+  width: 80%;
+  margin: 45px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.container img{
+  width: 60%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.tot{
+  margin: 0 auto;
+}
+
+div {
+  margin-bottom: 1rem;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  justify-content: space-between;
+
+}
+
+label {
+  margin-bottom: 0.5rem;
+}
+
+input, select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: solid #f7a604 1px;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+
+button {
+  background: #f7aa0f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  width: 80%;
+  margin: 0 auto;
+}
+
+button:hover {
+  background: #c15412;
+}
+
+

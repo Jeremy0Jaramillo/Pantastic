@@ -1,0 +1,35 @@
+<div class="page-container">
+  <div>
+    <app-header></app-header>
+    <div class="container">
+      <div class="payment-summary">
+        <h2>Resumen de Pedido</h2>
+        <div class="summary-card">
+          <p><strong>Nombre:</strong> {{summaryData.name}}</p>
+          <p *ngIf="isDelivery"><strong>Email:</strong> {{summaryData.email || 'No especificado'}}</p>
+          <p *ngIf="isDelivery"><strong>Dirección:</strong> {{summaryData.address || 'No especificado'}}</p>
+          <p *ngIf="!isDelivery"><strong>Hora de Retiro:</strong> {{summaryData.pickupTime || 'No especificado'}}</p>
+          <p *ngIf="!isDelivery"><strong>Local de Retiro:</strong> {{summaryData.location || 'No especificado'}}</p>
+          <p *ngIf="isDelivery"><strong>Observaciones:</strong> {{summaryData.observations || 'No especificado'}}</p>
+          <p><strong>Total a Pagar:</strong> ${{summaryData.total}}</p>
+        </div>
+      </div>
+      <div class="payment-section">
+        <h2>Paga Aquí</h2>
+        <div class="imgs">
+          <img src="../../assets/img/ahorita1.jpg">
+          <img src="https://megaorganik.com/wp-content/uploads/2023/07/Codigo_QR_DeUna_MEGA-724x1024.jpg">
+        </div>
+        <div class="bots">
+          <label for="comprobante">Sube aquí tu comprobante</label>
+          <input type="file" id="comprobante" (change)="onFileSelected($event)">
+        </div>
+        <div class="payment-buttons">
+          <button (click)="payWithAhorita()" [disabled]="!isFileUploaded">Pago con Ahorita</button>
+          <button (click)="payInPerson()">Pago en Físico</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
