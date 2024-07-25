@@ -12,7 +12,7 @@ export class PickupFormComponent {
   pickupTime: string = '';
   selectedLocation: string = '';
   total: number = 0;
-  locations: string[] = ['Morelia', 'Sweet and Fit', 'Yawi'];
+  locations: string[] = ['Morelia', 'Sweet and Fit', 'Yawi','Hotel San Sebastián'];
 
   constructor(private firestore: AngularFirestore, private router: Router) {
     const navigation = this.router.getCurrentNavigation();

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PDFDocument } from 'pdf-lib';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireStorage } from '@angular/fire/compat/storage'; // Importa AngularFireStorage
+import { LoginService } from '../services/login.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-payment',
@@ -13,8 +17,15 @@ export class PaymentComponent implements OnInit {
   uploadedFile: File | null = null;
   isDelivery: boolean = false;
   isDownloaded: boolean = false;
+  showThankYouAlert: boolean = false;
+  thankYouMessage: string = "Gracias por tu compra.";
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage, // Inyecta AngularFireStorage
+    private authService: LoginService // Inyectamos el servicio de autenticación
+  ) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.summaryData = navigation.extras.state['summaryData'];
@@ -28,7 +39,6 @@ export class PaymentComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.uploadedFile = input.files[0];
-      // Check if the uploaded file is a PNG or JPEG image
       const fileType = this.uploadedFile.type;
       if (fileType === 'image/png' || fileType === 'image/jpeg') {
         this.isFileUploaded = true;
@@ -40,11 +50,8 @@ export class PaymentComponent implements OnInit {
   }
 
   async downloadSummaryAndProof(): Promise<void> {
-    // Crear un documento PDF
     const pdfDoc = await PDFDocument.create();
     const page = pdfDoc.addPage([600, 400]);
-
-    // Añadir texto al PDF
     let content = `Resumen de Pedido\n\nNombre: ${this.summaryData.name}\n`;
 
     if (this.isDelivery) {
@@ -62,7 +69,6 @@ export class PaymentComponent implements OnInit {
 
     page.drawText(content, { x: 50, y: 350, size: 12 });
 
-    // Añadir imagen del comprobante si existe y es válida
     if (this.uploadedFile && (this.uploadedFile.type === 'image/png' || this.uploadedFile.type === 'image/jpeg')) {
       const fileReader = new FileReader();
       fileReader.onload = async () => {
@@ -74,7 +80,6 @@ export class PaymentComponent implements OnInit {
           image = await pdfDoc.embedJpg(imageBytes);
         }
         page.drawImage(image, { x: 70, y: 25, width: 130, height: 200 });
-        // Guardar el archivo PDF con el resumen y el comprobante
         const pdfBytes = await pdfDoc.save();
         const blob = new Blob([pdfBytes], { type: 'application/pdf' });
         const url = URL.createObjectURL(blob);
@@ -89,7 +94,6 @@ export class PaymentComponent implements OnInit {
       };
       fileReader.readAsArrayBuffer(this.uploadedFile);
     } else {
-      // Guardar el archivo PDF con solo el resumen
       const pdfBytes = await pdfDoc.save();
       const blob = new Blob([pdfBytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
@@ -106,13 +110,49 @@ export class PaymentComponent implements OnInit {
 
   payWithAhorita(): void {
     if (this.isDownloaded && this.isFileUploaded) {
-      this.router.navigate(['/final'], { state: { summaryData: this.summaryData } });
+      this.uploadFileAndSaveOrder();
     }
   }
 
   payInPerson(): void {
-    if (this.isDownloaded) {
-      this.router.navigate(['/final'], { state: { summaryData: this.summaryData } });
-    }
+    this.uploadFileAndSaveOrder();
+  }
+
+  uploadFileAndSaveOrder(): void {
+    const filePath = `orders/${Date.now()}_${this.uploadedFile!.name}`;
+    const fileRef = this.storage.ref(filePath);
+    const task = this.storage.upload(filePath, this.uploadedFile);
+
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        fileRef.getDownloadURL().subscribe(downloadURL => {
+          this.showThankYouAlert = true;
+          this.saveOrderToFirebase(downloadURL);
+        });
+      })
+    ).subscribe();
+  }
+
+  saveOrderToFirebase(downloadURL: string): void {
+    this.authService.getCurrentUserId().subscribe(userId => {
+      if (userId) {
+        this.firestore.collection('orders').add({
+          userId: userId, // Añadimos el userId al documento
+          summaryData: this.summaryData,
+          status: 'por entregar',
+          proofFileUrl: downloadURL // Guardamos la URL de descarga
+        }).then(() => {
+          console.log("Order successfully added!");
+        }).catch(error => {
+          console.error("Error adding order: ", error);
+        });
+      } else {
+        console.error("User not authenticated");
+      }
+    });
+  }
+
+  onAlertConfirmed(): void {
+    this.router.navigate(['/home']);
   }
 }

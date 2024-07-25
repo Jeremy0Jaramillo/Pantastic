@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import {LoginComponent} from "./components/login/login";
@@ -18,6 +19,8 @@ import {NoticiasComponent} from "./components/noticias/noticias";
 import { PickupFormComponent } from './pickup-form/pickup-form.component';
 import { DeliveryFormComponent } from './delivery-form/delivery-form.component';
 import { PaymentComponent } from './payment/payment.component';
+import { Alert2Component } from './alert2/alert2.component';
+import { PaymentHistoryComponent } from './payment-history/payment-history.component';
 
 
 
@@ -25,14 +28,15 @@ import { PaymentComponent } from './payment/payment.component';
   declarations: [
     AppComponent,
     LoginComponent, HomeComponent, HeaderComponent, FooterComponent, CartComponent, CarritoComponent,
-    ClubsComponent, AlertComponent, NoticiasComponent, PickupFormComponent, DeliveryFormComponent, PaymentComponent
+    ClubsComponent, AlertComponent, NoticiasComponent, PickupFormComponent, DeliveryFormComponent, PaymentComponent, Alert2Component, PaymentHistoryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

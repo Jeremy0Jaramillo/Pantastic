@@ -16,6 +16,7 @@
     <a [routerLink]="['/cart']">Comprar</a>
     <a [routerLink]="['/noticias']">Noticias</a>
     <a [routerLink]="['/clubs']">Clubs</a>
+    <a *ngIf="loggedIn" [routerLink]="['/payment-history']">Historial de Pagos</a>
   </nav>
 
   <div class="auth-buttons" >

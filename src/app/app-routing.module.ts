@@ -10,6 +10,7 @@ import {AuthGuard} from "./auth.guard";
 import {PickupFormComponent} from "./pickup-form/pickup-form.component";
 import {DeliveryFormComponent} from "./delivery-form/delivery-form.component";
 import {PaymentComponent} from "./payment/payment.component";
+import {PaymentHistoryComponent} from "./payment-history/payment-history.component";
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,7 +23,7 @@ export const routes: Routes = [
   { path: 'pickup', component: PickupFormComponent },
   { path: 'delivery', component: DeliveryFormComponent },
   { path: 'pago', component: PaymentComponent },
-
+  { path: 'payment-history', component: PaymentHistoryComponent },
   // Define other routes here
 ];
 

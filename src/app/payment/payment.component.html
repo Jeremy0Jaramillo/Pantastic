@@ -40,6 +40,7 @@
         </div>
       </div>
     </div>
+    <app-alert2 *ngIf="showThankYouAlert" [message]="thankYouMessage" (confirmed)="onAlertConfirmed()"></app-alert2>
   </div>
   <app-footer></app-footer>
 </div>

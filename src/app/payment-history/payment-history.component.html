@@ -1,0 +1,39 @@
+<div class="all">
+  <div class="up">
+    <app-header></app-header>
+    <div class="payment-history-container">
+      <h2>Historial de Pagos</h2>
+      <div *ngIf="userPayments.length === 0" class="no-payments">No tienes pagos registrados.</div>
+      <table *ngIf="userPayments.length > 0" class="payment-table">
+        <thead>
+        <tr>
+          <th>Estado</th>
+          <th>Nombre</th>
+          <th>Lugar de retiro</th>
+          <th>Hora aproximada de retiro</th>
+          <th>Total</th>
+          <th>Comprobante</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let payment of userPayments">
+          <td>{{ payment.status }}</td>
+          <td>{{ payment.summaryData.name }}</td>
+          <td>{{ payment.summaryData.location }}</td>
+          <td>{{ payment.summaryData.pickupTime }}</td>
+          <td>${{ payment.summaryData.total | number:'1.2-2' }}</td>
+          <td>
+            <span *ngIf="!payment.proofFileUrl">Pago en físico</span>
+            <button *ngIf="payment.proofFileUrl" (click)="downloadProof(payment.proofFileUrl)" class="download-button">Ver Comprobante</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+
+
+
