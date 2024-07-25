@@ -8,8 +8,9 @@
 <app-header></app-header>
 <section class="home" id="home">
   <div class="content">
-    <h1>Bienvenido a Pantastic</h1>
+    <h1 [routerLink]="['/cart']">Bienvenido a Pantastic</h1>
   </div>
+  <button [routerLink]="['/cart']">Compra ahora!</button>
 </section>
 
 <section class="info">
@@ -58,7 +59,7 @@
     </div>
   </div>
   <div class="club-item">
-    <div class="card-club">
+    <div [routerLink]="['/clubs']" class="card-club">
       <div class="icon">
         <img src="/assets/img/pan.png" alt="Pan">
       </div>
@@ -68,7 +69,7 @@
         <p>Apostamos por la innovación y el desarrollo de nuevos productos, diferenciales, que destaquen tanto por su sabor y calidad como por su fórmula innovadora.</p>
       </div>
     </div>
-    <div class="card-club">
+    <div [routerLink]="['/clubs']" class="card-club">
       <div class="icon">
         <img src="/assets/img/vino.png" alt="Vino">
       </div>
@@ -78,7 +79,7 @@
         <p>Apostamos por la innovación y el desarrollo de nuevos productos, diferenciales, que destaquen tanto por su sabor y calidad como por su fórmula innovadora.</p>
       </div>
     </div>
-    <div class="card-club">
+    <div [routerLink]="['/clubs']" class="card-club">
       <div class="icon">
         <img src="assets/img/cafe.png" alt="Cafe">
       </div>

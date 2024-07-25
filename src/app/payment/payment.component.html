@@ -4,6 +4,7 @@
     <div class="container">
       <div class="payment-summary">
         <h2>Resumen de Pedido</h2>
+        <h3>No olvides presentar tu comprobante para recibir tu pedido.</h3>
         <div class="summary-card">
           <p><strong>Nombre:</strong> {{summaryData.name}}</p>
           <p *ngIf="isDelivery"><strong>Email:</strong> {{summaryData.email || 'No especificado'}}</p>
@@ -12,10 +13,17 @@
           <p *ngIf="!isDelivery"><strong>Local de Retiro:</strong> {{summaryData.location || 'No especificado'}}</p>
           <p *ngIf="isDelivery"><strong>Observaciones:</strong> {{summaryData.observations || 'No especificado'}}</p>
           <p><strong>Total a Pagar:</strong> ${{summaryData.total}}</p>
+          <p *ngIf="summaryData.discountedTotal < summaryData.total"><strong>Total con Descuento:</strong> ${{summaryData.discountedTotal}}</p>
+        </div>
+        <div>
+          <span *ngIf="isFileUploaded">Archivo subido correctamente</span>
+          <button [disabled]="!isFileUploaded"  class="down" (click)="downloadSummaryAndProof()">Descargar Resumen y Comprobante</button>
         </div>
       </div>
       <div class="payment-section">
-        <h2>Paga Aquí</h2>
+        <div class="titPago">
+          <h2>Paga Aquí</h2>
+        </div>
         <div class="imgs">
           <img src="../../assets/img/ahorita1.jpg">
           <img src="https://megaorganik.com/wp-content/uploads/2023/07/Codigo_QR_DeUna_MEGA-724x1024.jpg">
@@ -23,10 +31,12 @@
         <div class="bots">
           <label for="comprobante">Sube aquí tu comprobante</label>
           <input type="file" id="comprobante" (change)="onFileSelected($event)">
+
         </div>
+
         <div class="payment-buttons">
-          <button (click)="payWithAhorita()" [disabled]="!isFileUploaded">Pago con Ahorita</button>
-          <button (click)="payInPerson()">Pago en Físico</button>
+          <button (click)="payWithAhorita()" [disabled]="!isDownloaded || !isFileUploaded">Pago Virtual</button>
+          <button (click)="payInPerson()" >Pago en Físico</button>
         </div>
       </div>
     </div>

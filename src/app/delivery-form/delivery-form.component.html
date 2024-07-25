@@ -25,6 +25,10 @@
             <label for="observations">Observaciones (opcional):</label>
             <textarea id="observations" [(ngModel)]="observations" name="observations"></textarea>
           </div>
+          <div>
+            <label for="coupon">Cupón de Descuento (opcional):</label>
+            <input type="text" id="coupon" [(ngModel)]="coupon" name="coupon">
+          </div>
           <div class="tot">
             <p>Total a pagar: ${{total}}</p>
           </div>
@@ -35,4 +39,3 @@
   </div>
   <app-footer></app-footer>
 </div>
-

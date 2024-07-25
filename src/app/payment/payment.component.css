@@ -30,6 +30,11 @@
   margin-bottom: 20px;
 }
 
+h3{
+  margin-top: 5px;
+  font-weight: 300;
+}
+
 .payment-section label {
   display: block;
   margin-bottom: 10px;
@@ -49,8 +54,14 @@
   margin: 10px;
 }
 
+.titPago{
+  display: flex;
+  justify-content: center;
+}
+
 .payment-buttons button:disabled {
   background: #ccc;
+  cursor: auto;
 }
 
 .payment-buttons button:hover:not(:disabled) {
@@ -73,4 +84,39 @@ img{
 .imgs{
   display: flex;
   justify-content: space-between;
+}
+
+#comprobante{
+  display: none;
+}
+
+label{
+  border: solid #f7a604 2px;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+label:hover{
+  color: white;
+  background-color: #f7a604;
+}
+
+.down{
+  background: #f7aa0f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.down:disabled {
+  background: #ccc;
+  cursor: auto;
+}
+
+.down:hover:not(:disabled) {
+  background: #c15412;
 }
