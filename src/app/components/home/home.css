@@ -50,6 +50,23 @@
   font-size: 600%;
   color: rgb(247, 166, 4);
   font-family: OoohBaby;
+  cursor: pointer;
+}
+
+.comp{
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: solid #f7a604 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.comp:hover{
+  background-color: #f7a604;
+  color: white;
+  cursor: pointer;
+  border: solid #f7a604 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .content{
@@ -61,6 +78,13 @@
   text-align: center;
 }
 
+h2{
+  font-weight: 600;
+}
+
+h3{
+  font-weight: 500;
+}
 
 /* Seccion 2, Info */
 .info {

@@ -115,11 +115,21 @@ export class PaymentComponent implements OnInit {
   }
 
   payInPerson(): void {
-    this.uploadFileAndSaveOrder();
+    if (this.uploadedFile) {
+      this.uploadFileAndSaveOrder();
+    } else {
+      this.showThankYouAlert = true;
+      this.saveOrderToFirebase(null);
+    }
   }
 
   uploadFileAndSaveOrder(): void {
-    const filePath = `orders/${Date.now()}_${this.uploadedFile!.name}`;
+    if (!this.uploadedFile) {
+      this.saveOrderToFirebase(null);
+      return;
+    }
+
+    const filePath = `orders/${Date.now()}_${this.uploadedFile.name}`;
     const fileRef = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, this.uploadedFile);
 
@@ -133,14 +143,14 @@ export class PaymentComponent implements OnInit {
     ).subscribe();
   }
 
-  saveOrderToFirebase(downloadURL: string): void {
+  saveOrderToFirebase(proofFileUrl: string | null): void {
     this.authService.getCurrentUserId().subscribe(userId => {
       if (userId) {
         this.firestore.collection('orders').add({
-          userId: userId, // Añadimos el userId al documento
+          userId: userId,
           summaryData: this.summaryData,
           status: 'por entregar',
-          proofFileUrl: downloadURL // Guardamos la URL de descarga
+          proofFileUrl: proofFileUrl // Guardamos la URL de descarga o null si no hay archivo
         }).then(() => {
           console.log("Order successfully added!");
         }).catch(error => {

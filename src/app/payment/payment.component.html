@@ -36,7 +36,7 @@
 
         <div class="payment-buttons">
           <button (click)="payWithAhorita()" [disabled]="!isDownloaded || !isFileUploaded">Pago Virtual</button>
-          <button (click)="payInPerson()" >Pago en Físico</button>
+          <button [disabled]="!isDownloaded" (click)="payInPerson()" >Pago en Físico</button>
         </div>
       </div>
     </div>

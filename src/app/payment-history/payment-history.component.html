@@ -19,8 +19,10 @@
         <tr *ngFor="let payment of userPayments">
           <td>{{ payment.status }}</td>
           <td>{{ payment.summaryData.name }}</td>
-          <td>{{ payment.summaryData.location }}</td>
-          <td>{{ payment.summaryData.pickupTime }}</td>
+          <td *ngIf="payment.summaryData.location">{{ payment.summaryData.location }}</td>
+          <td *ngIf="payment.summaryData.pickupTime">{{ payment.summaryData.pickupTime }}</td>
+          <td *ngIf="payment.summaryData.address">{{ payment.summaryData.address }}</td>
+          <td *ngIf="!payment.summaryData.pickupTime">Delivery</td>
           <td>${{ payment.summaryData.total | number:'1.2-2' }}</td>
           <td>
             <span *ngIf="!payment.proofFileUrl">Pago en físico</span>
